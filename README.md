@@ -18,6 +18,8 @@
   <a href="#license">License</a>
 </p>
 
+<p>Mockup: https://www.figma.com/file/zun1oP6NmS2Lmgbcj6e1IG/Test?node-id=0%3A1&t=VoiYTfiXggVItgVd-1</p>
+
 ![screenshot](https://textbook.edu.goit.global/lms-career-homework/uk/img/image-1.jpg)
 
 ## Key Features
