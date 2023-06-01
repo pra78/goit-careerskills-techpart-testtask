@@ -15,8 +15,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://textbook.edu.goit.global/lms-career-homework/uk/img/image-1.jpg![image](https://github.com/pra78/goit-careerskills-techpart-testtask/assets/66877961/6fa63ceb-86cc-4bd6-a9bc-5e479b6b6699)
-)
+![screenshot](https://textbook.edu.goit.global/lms-career-homework/uk/img/image-1.jpg)
 
 ## Key Features
 
