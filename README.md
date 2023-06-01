@@ -7,7 +7,7 @@
 	  <img src="https://img.shields.io/badge/stack-React-blue">
 	</a>
 <a href="https://img.shields.io/badge/stack-JS-brightgreen">
-	<img src="https://img.shields.io/badge/stack-React-green">
+	<img src="https://img.shields.io/badge/stack-JS-brightgreen">
 	</a>
 </p>
 
