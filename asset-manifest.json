@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/goit-careerskills-techpart-testtask/static/css/main.073c9b0a.css",
+    "main.js": "/goit-careerskills-techpart-testtask/static/js/main.b3e30aa5.js",
+    "static/js/787.1423d611.chunk.js": "/goit-careerskills-techpart-testtask/static/js/787.1423d611.chunk.js",
+    "static/media/logo.svg": "/goit-careerskills-techpart-testtask/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/goit-careerskills-techpart-testtask/index.html",
+    "main.073c9b0a.css.map": "/goit-careerskills-techpart-testtask/static/css/main.073c9b0a.css.map",
+    "main.b3e30aa5.js.map": "/goit-careerskills-techpart-testtask/static/js/main.b3e30aa5.js.map",
+    "787.1423d611.chunk.js.map": "/goit-careerskills-techpart-testtask/static/js/787.1423d611.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.b3e30aa5.js"
+  ]
+}
