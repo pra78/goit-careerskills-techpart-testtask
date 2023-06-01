@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/goit-careerskills-techpart-testtask/static/css/main.073c9b0a.css",
-    "main.js": "/goit-careerskills-techpart-testtask/static/js/main.b3e30aa5.js",
-    "static/js/787.1423d611.chunk.js": "/goit-careerskills-techpart-testtask/static/js/787.1423d611.chunk.js",
-    "static/media/logo.svg": "/goit-careerskills-techpart-testtask/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/goit-careerskills-techpart-testtask/static/css/main.6b25fdbb.css",
+    "main.js": "/goit-careerskills-techpart-testtask/static/js/main.454b496c.js",
+    "static/media/Montserrat-SemiBold.eot": "/goit-careerskills-techpart-testtask/static/media/Montserrat-SemiBold.262fb106797e141d7adf.eot",
+    "static/media/Montserrat-SemiBold.ttf": "/goit-careerskills-techpart-testtask/static/media/Montserrat-SemiBold.8771894959de6e640354.ttf",
+    "static/media/Montserrat-Medium.eot": "/goit-careerskills-techpart-testtask/static/media/Montserrat-Medium.418e43db3ef66b97a7ef.eot",
+    "static/media/Montserrat-Medium.woff": "/goit-careerskills-techpart-testtask/static/media/Montserrat-Medium.d42dad28f6470e5162c2.woff",
+    "static/media/Montserrat-SemiBold.woff": "/goit-careerskills-techpart-testtask/static/media/Montserrat-SemiBold.197213592de7a2a62e06.woff",
     "index.html": "/goit-careerskills-techpart-testtask/index.html",
-    "main.073c9b0a.css.map": "/goit-careerskills-techpart-testtask/static/css/main.073c9b0a.css.map",
-    "main.b3e30aa5.js.map": "/goit-careerskills-techpart-testtask/static/js/main.b3e30aa5.js.map",
-    "787.1423d611.chunk.js.map": "/goit-careerskills-techpart-testtask/static/js/787.1423d611.chunk.js.map"
+    "main.6b25fdbb.css.map": "/goit-careerskills-techpart-testtask/static/css/main.6b25fdbb.css.map",
+    "main.454b496c.js.map": "/goit-careerskills-techpart-testtask/static/js/main.454b496c.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.b3e30aa5.js"
+    "static/css/main.6b25fdbb.css",
+    "static/js/main.454b496c.js"
   ]
 }
