@@ -41,7 +41,9 @@ const Tweets = () => {
     const filteredTweets = useMemo(() => {
         console.log(follow);
         if (follow === "showAll") return tweets;
-        return tweets.filter((el) => el.isFollowed === Boolean(follow));
+        const filtered = tweets.filter((el) => el.isFollowed === /^true$/i.test(follow));
+        console.log(filtered);
+        return filtered;
     }, [tweets, follow]);
 
     return (
