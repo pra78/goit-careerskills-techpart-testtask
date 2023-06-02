@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { followTweet, getTweets } from "service/api";
-import { NumericFormat } from 'react-number-format';
-import { TextField } from '@mui/material';
 
 const Tweets = () => {
     const [tweets, setTweets] = useState([]);
@@ -25,8 +23,6 @@ const Tweets = () => {
             followers: el.isFollowed ? el.followers - 1 : el.followers + 1,
             }
             : el));
-        
-        
     }
 
     const handleLoadMoreButtonClick = (event) => {
@@ -42,7 +38,7 @@ const Tweets = () => {
                 {tweets.map(({ id, userName, tweets, avatar, followers, isFollowed }) => (<li key={id}>
                     <img src={avatar} alt={userName} />
                     <p>{tweets} TWEETS</p>
-                    <p><NumericFormat thousandSeparator="," value={followers} customInput={TextField} /> FOLLOWERS</p>
+                    <p>{followers.toLocaleString('en-US')} FOLLOWERS</p>
                     {isFollowed ? (<button type="button" onClick={() => handleFollowButtonClick(id)}>FOLLOWING</button>) : (<button type="button" onClick={() => handleFollowButtonClick(id)}>FOLLOW</button>)}
                 </li>))}
             </ul>
