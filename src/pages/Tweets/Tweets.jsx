@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import TweetsList from "components/TweetsList/TweetsList";
+import TweetsLoadMoreButton from "components/TweetsLoadMoreButton/TweetsLoadMoreButton";
+import TweetsSelect from "components/TweetsSelect/TweetsSelect";
+import { useEffect, useMemo, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { followTweet, getTweets } from "service/api";
 
 const Tweets = () => {
     const [tweets, setTweets] = useState([]);
     const [page, setPage] = useState(1);
+    const [follow, setFollow] = useState('showAll');
 
     useEffect(() => {
         const fetchTweets = async (page) => {
@@ -29,20 +33,24 @@ const Tweets = () => {
         event.preventDefault();
         setPage(prev => prev + 1);
     }
+    
+    const changeFilter = (e) => {
+        setFollow(e.currentTarget.value);
+    }
+
+    const filteredTweets = useMemo(() => {
+        console.log(follow);
+        if (follow === "showAll") return tweets;
+        return tweets.filter((el) => el.isFollowed === Boolean(follow));
+    }, [tweets, follow]);
 
     return (
         <>
             <h1>Tweets</h1>
             <NavLink to="/">Back</NavLink>
-            <ul>
-                {tweets.map(({ id, userName, tweets, avatar, followers, isFollowed }) => (<li key={id}>
-                    <img src={avatar} alt={userName} />
-                    <p>{tweets} TWEETS</p>
-                    <p>{followers.toLocaleString('en-US')} FOLLOWERS</p>
-                    {isFollowed ? (<button type="button" onClick={() => handleFollowButtonClick(id)}>FOLLOWING</button>) : (<button type="button" onClick={() => handleFollowButtonClick(id)}>FOLLOW</button>)}
-                </li>))}
-            </ul>
-            <button type="button" onClick={handleLoadMoreButtonClick}>Load More</button>
+            <TweetsSelect follow={follow} selectTweets={ changeFilter } />
+            <TweetsList tweets={filteredTweets} followButtonClick={handleFollowButtonClick} />
+            <TweetsLoadMoreButton loadMoreButtonClick={handleLoadMoreButtonClick} />
         </>);
 };
 
