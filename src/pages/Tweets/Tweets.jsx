@@ -2,14 +2,13 @@ import TweetsList from "components/TweetsList/TweetsList";
 import TweetsLoadMoreButton from "components/TweetsLoadMoreButton/TweetsLoadMoreButton";
 import TweetsSelect from "components/TweetsSelect/TweetsSelect";
 import { useEffect, useMemo, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { followTweet, getTweets } from "service/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useLocalStorage } from "hooks/useLocalStorage";
+import { NavBarStyled, NavLinkStyled, TweetsPageStyled } from "./Tweets.styled";
 
 const Tweets = () => {
-    const [tweets, setTweets] = useLocalStorage('tweets', []);
+    const [tweets, setTweets] = useState([]);
     const [page, setPage] = useState(1);
     const [follow, setFollow] = useState('showAll');
     const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +45,7 @@ const Tweets = () => {
         return () => {
             ignore = true;
         }
-    }, [page, setTweets]);
+    }, [page]);
 
     const followUnfollowTweet = async (id) => {
         setError(null);
@@ -91,10 +90,12 @@ const Tweets = () => {
     }, [tweets, follow]);
 
     return (
-        <>
-            <NavLink to="/">Back</NavLink>
-            <h1>Tweets</h1>
-            <TweetsSelect follow={follow} selectTweets={changeFilter} />
+        <TweetsPageStyled>
+            <NavBarStyled>
+                <NavLinkStyled to="/">Back</NavLinkStyled>
+                <h1>Tweets</h1>
+                <TweetsSelect follow={follow} selectTweets={changeFilter} />
+            </NavBarStyled>
             {error && <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -110,7 +111,7 @@ const Tweets = () => {
             <TweetsList tweets={filteredTweets} followButtonClick={handleFollowButtonClick} />
             {isLoading && <h2>Loading...</h2>}
             <TweetsLoadMoreButton loadMoreButtonClick={handleLoadMoreButtonClick} />
-        </>);
+        </TweetsPageStyled>);
 };
 
 export default Tweets;
