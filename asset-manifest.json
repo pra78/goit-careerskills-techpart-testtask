@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/goit-careerskills-techpart-testtask/static/css/main.a43855ff.css",
-    "main.js": "/goit-careerskills-techpart-testtask/static/js/main.8307721f.js",
+    "main.js": "/goit-careerskills-techpart-testtask/static/js/main.b818f86d.js",
     "static/media/Montserrat-SemiBold.eot": "/goit-careerskills-techpart-testtask/static/media/Montserrat-SemiBold.262fb106797e141d7adf.eot",
     "static/media/Montserrat-SemiBold.ttf": "/goit-careerskills-techpart-testtask/static/media/Montserrat-SemiBold.8771894959de6e640354.ttf",
     "static/media/Montserrat-Medium.eot": "/goit-careerskills-techpart-testtask/static/media/Montserrat-Medium.418e43db3ef66b97a7ef.eot",
@@ -10,10 +10,10 @@
     "static/media/picture.png": "/goit-careerskills-techpart-testtask/static/media/picture.e925c30498e6fa1cf551.png",
     "index.html": "/goit-careerskills-techpart-testtask/index.html",
     "main.a43855ff.css.map": "/goit-careerskills-techpart-testtask/static/css/main.a43855ff.css.map",
-    "main.8307721f.js.map": "/goit-careerskills-techpart-testtask/static/js/main.8307721f.js.map"
+    "main.b818f86d.js.map": "/goit-careerskills-techpart-testtask/static/js/main.b818f86d.js.map"
   },
   "entrypoints": [
     "static/css/main.a43855ff.css",
-    "static/js/main.8307721f.js"
+    "static/js/main.b818f86d.js"
   ]
 }
