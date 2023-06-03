@@ -7,7 +7,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route index element={<Home />} />
-      <Route path="/tweets" element={<Tweets />} />
+      <Route path="tweets" element={<Tweets />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
