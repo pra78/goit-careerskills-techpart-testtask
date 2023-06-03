@@ -10,6 +10,7 @@ export const TweetCardStyled = styled.li`
     margin-right: auto;
     margin-bottom: 48px;
     padding-top: 178px;
+    padding-bottom: 36px;
     border-radius: 20px;
     text-align: center; 
     background-image: url(${rectangle}), url(${logo}), url(${picture}), linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
@@ -46,7 +47,6 @@ export const TweetTextStyled = styled.p`
 export const FollowButtonStyled = styled.button`
     width: 196px;
     margin-top: 10px;
-    margin-bottom: 36px;
     font-size: 18px;
     line-height: 1.22;
     font-weight: 600;
@@ -61,7 +61,6 @@ export const FollowButtonStyled = styled.button`
 export const FollowingButtonStyled = styled.button`
     width: 196px;
     margin-top: 10px;
-    margin-bottom: 36px;
     font-size: 18px;
     line-height: 1.22;
     font-weight: 600;

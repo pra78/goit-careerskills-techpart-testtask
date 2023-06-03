@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import ellipse from "images/Ellipse.png";
 import { AvatarStyled, BadgeStyled, FollowButtonStyled, FollowingButtonStyled, TweetCardStyled, TweetTextStyled } from "./TweetsCard.styled";
+import ButtonSkeleton from "components/ButtonSkeleton/ButtonSkeleton";
 
-const TweetsCard = ({ tweetProps, followButtonClick }) => {
+const TweetsCard = ({ tweetProps, followButtonClick, isLoading }) => {
     const { id, userName, tweets, avatar, followers, isFollowed } = tweetProps;
 
     return (<TweetCardStyled key={id}>
@@ -10,7 +11,7 @@ const TweetsCard = ({ tweetProps, followButtonClick }) => {
         <AvatarStyled src={avatar} alt={userName} />
         <TweetTextStyled>{Number(tweets).toLocaleString('en-US')} TWEETS</TweetTextStyled>
         <TweetTextStyled>{followers.toLocaleString('en-US')} FOLLOWERS</TweetTextStyled>
-        {isFollowed ? (<FollowingButtonStyled type="button" onClick={() => followButtonClick(id)}>FOLLOWING</FollowingButtonStyled>) : (<FollowButtonStyled type="button" onClick={() => followButtonClick(id)}>FOLLOW</FollowButtonStyled>)}
+        {isLoading === id ? <ButtonSkeleton /> : isFollowed ? (<FollowingButtonStyled type="button" onClick={() => followButtonClick(id)}>FOLLOWING</FollowingButtonStyled>) : (<FollowButtonStyled type="button" onClick={() => followButtonClick(id)}>FOLLOW</FollowButtonStyled>)}
     </TweetCardStyled>);
 };
 
@@ -25,5 +26,6 @@ TweetsCard.propTypes = {
         followers: PropTypes.number.isRequired,
         isFollowed: PropTypes.bool.isRequired
     }),
-    followButtonClick: PropTypes.func.isRequired
+    followButtonClick: PropTypes.func.isRequired,
+    isLoading: PropTypes.string,
 }

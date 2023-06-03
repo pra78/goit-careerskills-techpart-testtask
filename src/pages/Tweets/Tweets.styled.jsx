@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const TweetsPageStyled = styled.div`
     background-color: #DDE6ED;
+    text-align: center;
 `
 
 export const NavBarStyled = styled.div`
@@ -21,4 +22,10 @@ export const NavLinkStyled = styled(NavLink)`
     &:focus {
         color: #E57C23;
     }
-`
+`;
+
+export const HeaderTextStyled = styled.h1`
+    color: #27374D;
+    font-weight: 600;
+    font-size: 36px;
+`;

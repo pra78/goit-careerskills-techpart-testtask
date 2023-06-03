@@ -1,18 +1,30 @@
 import PropTypes from "prop-types";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const TweetsSelect = ({ follow, selectTweets }) => {
-  
 
   return (
-    <select
-      name="follow"
-      onChange={(e) => selectTweets(e)}
-      value={follow}
-    >
-      <option value="showAll">Show All</option>
-      <option value="false">Follow</option>
-      <option value="true">Followings</option>
-    </select>
+    <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Tweets</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={follow}
+          label="Tweets"
+          onChange={(e) => selectTweets(e)}
+        >
+          <MenuItem value={"showAll"}>Show All</MenuItem>
+          <MenuItem value={"false"}>Follow</MenuItem>
+          <MenuItem value={"true"}>Followings</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
   );
 };
 

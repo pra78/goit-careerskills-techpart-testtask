@@ -1,35 +1,27 @@
 import TweetsList from "components/TweetsList/TweetsList";
 import TweetsLoadMoreButton from "components/TweetsLoadMoreButton/TweetsLoadMoreButton";
 import TweetsSelect from "components/TweetsSelect/TweetsSelect";
+import Toast from "components/ToastContainer/ToastContainer";
+import TweetSkeleton from "components/TweetSkeleton/TweetSkeleton";
 import { useEffect, useMemo, useState } from "react";
 import { followTweet, getTweets } from "service/api";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { NavBarStyled, NavLinkStyled, TweetsPageStyled } from "./Tweets.styled";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { HeaderTextStyled, NavBarStyled, NavLinkStyled, TweetsPageStyled } from "./Tweets.styled";
+import { SelectChangeEvent } from "@mui/material";
 
 const Tweets = () => {
     const [tweets, setTweets] = useState([]);
     const [page, setPage] = useState(1);
     const [follow, setFollow] = useState('showAll');
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoadingTweets, setIsLoadingTweets] = useState(false);
+    const [isLoadingStatus, setIsLoadingStatus] = useState(null);
     const [error, setError] = useState(null);
-
-    toast.error(error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
 
     useEffect(() => {
         let ignore = false;
         const fetchTweets = async (page) => {
             setError(null);
-            setIsLoading(true);
+            setIsLoadingTweets(true);
             try {
                 const { data } = await getTweets(page);
                 if (!ignore) {
@@ -38,7 +30,7 @@ const Tweets = () => {
             } catch (error) {
                 setError(error.message)
             } finally {
-                setIsLoading(false)
+                setIsLoadingTweets(false)
             }
         }
         fetchTweets(page);
@@ -47,9 +39,9 @@ const Tweets = () => {
         }
     }, [page]);
 
-    const followUnfollowTweet = async (id) => {
+    const handleFollowButtonClick = async (id) => {
         setError(null);
-        setIsLoading(true);
+        setIsLoadingStatus(id);
         const index = tweets.findIndex(el => (el.id === id));
         try {
             if (tweets[index].isFollowed === true) {
@@ -57,21 +49,17 @@ const Tweets = () => {
             } else {
                 await followTweet(id, { isFollowed: true, followers: tweets[index].followers + 1 })
             }
-        } catch (error) {
-            setError(error.message);
-        } finally {
-            setIsLoading(false);
-        }
-    }
-
-    const handleFollowButtonClick = (id) => {
-        followUnfollowTweet(id);
-        setTweets(prev => prev.map(el => el.id === id ? {
+            setTweets(prev => prev.map(el => el.id === id ? {
             ...el,
             isFollowed: !el.isFollowed,
             followers: el.isFollowed ? el.followers - 1 : el.followers + 1,
             }
             : el));
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setIsLoadingStatus(null);
+        }
     }
 
     const handleLoadMoreButtonClick = (event) => {
@@ -79,8 +67,8 @@ const Tweets = () => {
         setPage(prev => prev + 1);
     }
     
-    const changeFilter = (e) => {
-        setFollow(e.currentTarget.value);
+    const changeFilter = (event: SelectChangeEvent) => {
+        setFollow(event.target.value);
     }
 
     const filteredTweets = useMemo(() => {
@@ -92,24 +80,13 @@ const Tweets = () => {
     return (
         <TweetsPageStyled>
             <NavBarStyled>
-                <NavLinkStyled to="/">Back</NavLinkStyled>
-                <h1>Tweets</h1>
+                <NavLinkStyled to="/"><ArrowBackIosIcon fontSize="small" sx={{fontSize: "0.9rem"}}/>Back</NavLinkStyled>
+                <HeaderTextStyled>Tweets</HeaderTextStyled>
                 <TweetsSelect follow={follow} selectTweets={changeFilter} />
             </NavBarStyled>
-            {error && <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />}
-            <TweetsList tweets={filteredTweets} followButtonClick={handleFollowButtonClick} />
-            {isLoading && <h2>Loading...</h2>}
+            <Toast error={error} />
+            <TweetsList tweets={filteredTweets} followButtonClick={handleFollowButtonClick} isLoading={isLoadingStatus} />
+            <TweetSkeleton isLoading={isLoadingTweets} />
             <TweetsLoadMoreButton loadMoreButtonClick={handleLoadMoreButtonClick} />
         </TweetsPageStyled>);
 };
